@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body{
+        background-color: black;
+        color: blanchedalmond;
+    }
+    p{
+        text-align: center;
+    }
+
+</style>
+<script>
+
+//funções construtoras conchecidas tambem como prototipos ou prototypes, todos os objetos herdão  as propriedades e os metodos dos seus prototipos quando crias um objeto tipo date 
+// o obejtos que estamos criando esta herdando da propriedade do date.prototype este molde que vamos usar para criar os objetos
+//var myDate = new Date();
+//vamos voltar ao lapis 
+/*
+function Pencil(){
+    this.color = 'red';//this referencia ao Pencil
+    this.length = 15;
+    this.write = function(text){
+        console.log(text);
+    }
+}
+
+//  Instancia  de  Pencil
+var myPencil = new Pencil(); // teremos um novo lapis
+
+//criando outro lapis
+var myPencil2 = new Pencil(); 
+
+// podemos usar instanceof para ver se é uma instancia 
+//no console
+myPencil instanceof Pencil
+//true
+
+variaveis privadas são acessiveis apenas dentro do proprio objeto não podemos acessar de fora, como o codigo do lapis 
+
+no console 
+myPencil.code = undefined / por que  não o jogamos no this no proprio objeto não existe no obeto mas sim na funçaõ construtora podemos então fazer uma função que vai retornar este valor 
+
+todo objeto possui propriedade chamada de prototype 
+
+date.prototype todas as funções 
+
+pencil.prototype 
+
+podemos inserir novos metodos e propriedadas quando inserimos novos metoso no protoripo estes nomvos metoso aparecem em todas as instancias deste prototipo 
+
+*/
+//deixamos valores fixos, podemos indicar valores iniciais para o metodo construtor assim ao criar novos objetos vc podera ter valores iniciados de acordo com a necessidade 
+//LEMBRANDO QUE O THIS REFERECE AO PROPRIO OBJETO ESTANCIADO 
+function Pencil(color, length){// agoara quando for iniciar  uma instancia  Pencil posso indicar qual os valores que quero iniciar 
+    var code = 153;//não colco no this ou seja esta var não faz parde do objeto ela só existe aqui dentro 
+
+    /*
+    function myFunc(){ função privada  não consegue acessar de fora, privado não garente segurança do codigo, apenas não vai ter acesso a alteração de qualquer jeito
+
+    }
+    
+    */
+    if (!(this instanceof Pencil)){// saber se é uma instancia ou não/ se o this não for uma instancia de pencil  é por que ele é uma instancia de window ou sej afoi esquecido o new 
+        return new Pencil(color, length);// se chamarmos o new  ele executa normal e não entra no if mas se ele esquecer de chamar o new ele vai ser executado como uma função comum então ele verificara se this é uma instancia de Pencil não ele  vai ser uma instancia de window e se der falso a negão tranforamara o falso em verdadeiro e acabara retornando o new Pencil(); que é o que deveria ser feito 
+    }
+    this.color = color;
+    this.length = length;
+    this.write = function(text){
+        console.log(text);
+    }
+    this.getCode = function(){//getcode esta pegando o code e retorna o valor da varivel e não conseguimos fazer a alteração neste valor apenas obter 
+        return code;
+    }//como queremos acessar de fora tem que fazer parte do obejtos e declarar no this 
+    //caso queria permir uma alteração em uma variavel privada podemos :
+    this.setCode = function(value){
+        code = value;
+    }
+    //no console
+    /*
+    myPencil.getCode()
+    153
+    myPencil.setCode(321)
+    undefined
+    myPencil.getCode()
+    321
+    */
+}
+// ex 
+// caso esqueça do new ele retorna undefined executando assim uma função normal 
+var myPencil = new Pencil('red',15+'cm');// quero que este primeiro lapis ele seja vermelho e vai ter 15 cm
+var myPencil2 = new Pencil('blue', 20+'cm');  // ja o 2 quero ele azul e 20 cm 
+
+/*
+console
+Pencil.prototype.number = 5
+5
+se acesarmos o mypencil.number 
+tem o 5 
+igualmente ao 2
+
+com o protoptype podemos adicionar funções e metodos mesmo naqueles que já foram instanciados 
+
+
+*/
+
+ 
+
+</script>
+
+<p>Abra o console e veja a magiaaaaa</p>
+
+</body>
+</html>

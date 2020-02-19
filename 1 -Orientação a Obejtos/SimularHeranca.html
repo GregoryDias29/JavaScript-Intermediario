@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body{
+        background-color: black;
+        color: blanchedalmond;
+    }
+    p{
+        text-align: center;
+    }
+
+</style>
+<script>
+//herança é quando um objeto herda propriedades e metodos de otrro obejeto vamos simular um prototipo animal e um dog herda de animal 
+
+/*
+um cão é um animal se quisermos criar um outro prototipo como cat podemos colocar os comportamentos que são em comum deses animal no animal 
+
+tosoa animais dormer mais latir so o cão late 
+
+como fazer o cão herdar animal 
+
+basta ir em dog. prototy e colocar o new animal e instanciar o nosso dog 
+
+*/
+
+function AAnimal(){
+    this.sleep = function(){
+        console.log('ZZZZZZZZZZ');
+    }
+}
+
+function Dog(){
+    this.bark = function(){
+        console.log('Woof ')
+    }
+}
+
+Dog.prototype = new Animal();
+
+var myDog = new Dog();
+
+/*
+No console 
+myDog.bark()
+Woof
+MyDog.sleep()
+ZZZZZ
+então nosso cao nosso prototiipo dog receber o metodo do prototipo animal
+*/
+
+
+</script>
+
+<p>Abra o console e veja a magiaaaaa</p>
+
+</body>
+</html>
